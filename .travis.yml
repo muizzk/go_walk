@@ -1,13 +1,19 @@
 # default os is Linux (Xenial) and sudo is True
-language: node_js
-node_js:
-- '9'
-before_install:
-- sudo apt-get update
-- sudo apt-get install python3
-- rvm install 2.5.3
-jobs:
-  include:
-    - stage: Need sudo?
-      script: echo `which python3`
+# language: node_js
+# node_js:
+# - '9'
+# before_install:
+# - sudo apt-get update
+# - sudo apt-get install python3
+# - rvm install 2.5.3
+# jobs:
+#   include:
+#     - stage: Need sudo?
+#      script: echo `which python3`
+os: osx
+addons:
+  homebrew:
+    packages:
+    - node
+    update: false
 
