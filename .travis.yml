@@ -5,6 +5,7 @@
  before_install:
  - sudo apt-get update
  - sudo apt-get install python3
+ - sudo apt install php7.2-mongodb
  - rvm install 2.5.3
  jobs:
    include:
