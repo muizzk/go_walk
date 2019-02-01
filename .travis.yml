@@ -8,14 +8,14 @@
  before_install:
  - sudo apt-get update
  - sudo apt-get install python3
- - sudo apt install php7.2-mongodb
  - rvm install 2.5.3
+ - wget https://github.com/mongodb/mongo-php-driver/releases/download/1.5.3/mongodb-1.5.3.tgz
  jobs:
    include:
      - stage: Need sudo?
        script: echo `which python3`
      - stage: MongoDB PHP ext installed?
-       script: php -m | grep mongo 
+       script: pecl install -f mongodb-1.5.3.tgz && php -m | grep mongo
 # os: osx
 # addons:
 #  homebrew:
