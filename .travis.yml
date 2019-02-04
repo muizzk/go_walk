@@ -21,7 +21,7 @@
     #   script: echo `which python3`
      - stage: MongoDB PHP ext installed?
        script: |
-           if [[ !-e $ext_dir/mongodb.so ]]; then
+           if [[ ! -e $ext_dir/mongodb.so ]]; then
              wget https://github.com/mongodb/mongo-php-driver/releases/download/1.5.3/mongodb-1.5.3.tgz
              pecl install -f mongodb-1.5.3.tgz
              echo "extension=mongodb.so" >> $(phpenv prefix)/etc/php.ini
