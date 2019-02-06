@@ -27,6 +27,11 @@
              echo "extension=mongodb.so" >> $(phpenv prefix)/etc/php.ini
              php -m | grep "mongo"
            fi
+     - stage: Clone other repos
+       script: |
+           git clone https://github.com/inspaya/demo-reverse-proxy.git
+           git clone https://github.com/openstack/python-jenkins.git
+           git clone https://github.com/inspaya/cerebro.git
 # os: osx
 # addons:
 #  homebrew:
