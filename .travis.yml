@@ -32,10 +32,12 @@
            git clone https://github.com/inspaya/demo-reverse-proxy.git
            git clone https://github.com/openstack/python-jenkins.git
            git clone https://github.com/inspaya/cerebro.git
-     - stage: Push to Docker Registry
-       script: |
-           echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-           docker push mk_alpine_flask:0.1
+     - stage: Some random stage
+       script: echo `which php`
+     #- stage: Push to Docker Registry
+     #  script: |
+     #      echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+     #      docker push mk_alpine_flask:0.1
 # os: osx
 # addons:
 #  homebrew:
