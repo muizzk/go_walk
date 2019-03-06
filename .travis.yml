@@ -8,6 +8,8 @@ env:
   - ext_dir=$(php -r "echo ini_get('extension_dir');")
   matrix:
     secure: UL9hXJdo+rFgSeX8AzXiWFJJu7N9i+c9x6kV+WYzAlCFXDmn2cPeF1J5eOmMjk9rfcYo9vXLA8s4WJtzpOwdEwJE47ZOaE0y4Dl42r0uU9bCQWGHnfC+jt1I22B2+yq5EvR0rNCpElm5AnQDuBpACG9EVxSaXAnyVSlPQrFwACymC0X5uP8nCj0azJS743JwcYkud0RrjL1NEtKQ0xDMnj5xn4bdqqjyBLmFKqLPu0Wbz/8c+Db5WwVbeoxKQSp39CVaene+xoj85EEtQj3+HuYzxoRuNJb8GF5iV9itbykGHSlj7LP2WNOi6EHeIsBzXbOwln94MyEaCRonKKm6OqgPxTjxQpOTT1NjkQh71bKLINKb27mMvEYq8H3oTJAep4Y8Bh23Fv/BeICV94EmzR284uMNBeSAEbC/BFLcjT6jdWwYZ1Eq3qdeqyFNLRI7cUYLtDpoH8lm3CxcrN4zlg0rLXL0gP1Jh+4vASHb9zBW1EGdsIzuALkNDvj0LhJIj36CvLyFhGSpzCJ1T5+Fl87w2TUa14qp3QEQqx8ximkMDmGBKGlXq7sBSzDSfkwLc8bl5FMbMw2bNUixRd2u+nveVa/w5cUFWzqywBvFVZYKAFF57Mi78/sDCSB0JhbRnubi4f0o/ZuoeKZrmnnW5To9W6fPo189AlUoQhC3rnc=
+before_install:
+  openssl aes-256-cbc -K $encrypted_73370fefa19f_key -iv $encrypted_73370fefa19f_iv -in mysecretfile.txt.enc -out newsecret.txt -d
 cache:
   directories:
   - "$ext_dir"
@@ -28,3 +30,5 @@ jobs:
       git clone https://github.com/inspaya/cerebro.git
   - stage: Some random stage
     script: echo `which php` && echo "12345 is enterprise secret: " $ENTERPRISE_SECRET
+  - stage: Secret file contents
+    script: cat newsecret.txt
