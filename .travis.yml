@@ -1,34 +1,9 @@
-# Config file for automatic testing at travis-ci.org
-
-
+dist: trusty
 language: python
 python:
-  - "3.6"
-
-env:
-  global:
-  - TOXDIR=$TRAVIS_BUILD_DIR/go_walk/.tox/
-  include:
-  - python: "3.6"
-  env: TOXENV=py36
-
-cache:
-  directories:
-  - $TOXDIR
-
-before_install:
-  - python --version
-  - virtualenv --version
-  - pip install -U pip wheel
-  - pip install -U pytest
-  - pip --version
-
+  - "pypy3.5"
 # command to install dependencies
 install:
-  - pip install tox
-  - pip install -U pip wheel
-
+  - pip install -r requirements.txt
 # command to run tests
-script:
-  - tox -e $TOXENV
-
+script: pytest
