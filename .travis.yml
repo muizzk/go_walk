@@ -19,5 +19,5 @@ script:
 #- pytest
 #- which chrome
 - which composer
-- php /usr/bin/composer.phar self-update
+- $(`which composer`).phar self-update
 - composer self-update
