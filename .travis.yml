@@ -1,9 +1,22 @@
 dist: trusty
-language: python
-python:
-  - "pypy3.5"
+language: php
+php:
+  - hhvm
+# python:
+#  - "pypy3.5"
 # command to install dependencies
-install:
-  - pip install -r requirements.txt
+# install:
+#  - pip install -r requirements.txt
+
+# install custom chrome version
+# before_script:
+#- wget http://chromedriver.storage.googleapis.com/2.22/chromedriver_linux64.zip
+#- unzip chromedriver_linux64.zip $TRAVIS_BUILD_DIR
+#- export CHROME_BIN=$TRAVIS_BUILD_DIR/chromium-browser
+
 # command to run tests
-script: pytest
+script: 
+#- pytest
+#- which chrome
+- which composer
+- composer self update
