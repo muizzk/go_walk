@@ -21,3 +21,4 @@ script:
 - which composer
 - $(`which composer`).phar self-update
 - composer self-update
+- nproc --all
