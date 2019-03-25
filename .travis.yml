@@ -5,6 +5,9 @@ dist: trusty
 language: python
 python:
   - "pypy3.5"
+env:
+  global:
+  - SCRIPT_PATH=scripts/
 # command to install dependencies
 # install:
 #  - pip install -r requirements.txt
@@ -16,12 +19,22 @@ python:
 #- export CHROME_BIN=$TRAVIS_BUILD_DIR/chromium-browser
 
 # command to run tests
-script: 
+#script: 
 #- pytest
+
 #- which chrome
+
+# Some PHP Testing
 #- which composer
 #- $(`which composer`).phar self-update
 #- composer self-update
-- nproc --all
-- lscpu
-- python cores.py
+
+# OS Environment Testing
+#- nproc --all
+#- lscpu
+#- python cores.py
+
+# Nested script testing
+before_script: cd $SCRIPT_PATH
+script: yello.sh 
+
