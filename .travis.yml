@@ -1,9 +1,10 @@
 dist: trusty
-language: php
-php:
-  - hhvm
-# python:
-#  - "pypy3.5"
+# language: php
+# php:
+#   - hhvm
+language: python
+python:
+  - "pypy3.5"
 # command to install dependencies
 # install:
 #  - pip install -r requirements.txt
@@ -18,7 +19,9 @@ php:
 script: 
 #- pytest
 #- which chrome
-- which composer
-- $(`which composer`).phar self-update
-- composer self-update
+#- which composer
+#- $(`which composer`).phar self-update
+#- composer self-update
 - nproc --all
+- lscpu
+- python cores.py
