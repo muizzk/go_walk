@@ -35,6 +35,9 @@ env:
 #- python cores.py
 
 # Nested script testing
-before_script: cd $SCRIPT_PATH
-script: yello.sh 
+before_script: 
+- cd $SCRIPT_PATH
+- pwd
+- chmod +x yello.sh
+script: bash yello.sh 
 
