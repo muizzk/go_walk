@@ -38,8 +38,8 @@ install:
 - sudo mv -v composer.phar /usr/local/bin/composer
 
 before_script:
-- composer self-update
-- composer --version
+- php composer.phar self-update
+- php composer.phar --version
 
 script:
 - which composer
