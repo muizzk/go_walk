@@ -1,3 +1,7 @@
 language: node_js
-services:
-  - mongodb
+before_install:
+- gpg --import exported_key.gpg
+
+script:
+- which gpg
+- gpg --list-secret-keys --keyid-format LONG
