@@ -1,7 +1,7 @@
-language: node_js
-before_install:
-- gpg --import exported_key.gpg
-
+language: python
 script:
 - which gpg
 - gpg --list-secret-keys --keyid-format LONG
+- python -c 'import sys; print(sys.byteorder)'
+- gpg --import exported_key.gpg
+
