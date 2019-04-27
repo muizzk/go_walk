@@ -1,15 +1,11 @@
-notifications:
-  webhooks:
-    urls:
-      http://23a3dc10.ngrok.io
-    on_success: always
-    on_failure: always
-    on_start: always
-
-#language: python
-#script:
-#- which gpg
-#- gpg --list-secret-keys --keyid-format LONG
-#- python -c 'import sys; print(sys.byteorder)'
-#- gpg --import exported_key.gpg
-
+language: cpp
+before_install:
+- which go
+- go version
+- cd /tmp
+- wget https://dl.google.com/go/go1.4.linux-amd64.tar.gz
+- sudo tar -xvf go1.4.linux-amd64.tar.gz
+- sudo mv go /usr/local
+- echo 'New Go version'
+- which go
+- go version
