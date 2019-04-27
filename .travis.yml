@@ -2,10 +2,10 @@ language: cpp
 before_install:
 - which go
 - go version
-- cd /tmp
+- cd /home/travis/.gimme/versions/
 - wget https://dl.google.com/go/go1.4.linux-amd64.tar.gz
 - sudo tar -xvf go1.4.linux-amd64.tar.gz
-- sudo mv go /usr/local
+- sudo mv go ./bin/go
 - echo 'New Go version'
 - which go
 - go version
