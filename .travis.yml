@@ -1,5 +1,6 @@
 env:
   - DOCKER_COMPOSE_VERSION=1.10.0
+  - COMPOSE_PROJECT_NAME=host
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
