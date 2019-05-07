@@ -11,3 +11,7 @@ before_install:
 install:
   - docker-compose build
   - docker-compose up -d
+
+after_failure:
+  - echo 'Output is fine here'
+  - echo $TRAVIS_TEST_RESULT
