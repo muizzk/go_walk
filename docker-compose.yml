@@ -4,10 +4,16 @@ services:
     build: .
     ports:
       - "8000:8000"
+    networks:
+      - host
   db:
     image: postgres
     ports:
       - "8001:5432"
+    networks:
+      - host
+networks:
+  host:
 # networks:
 #   default:
 #     external:
