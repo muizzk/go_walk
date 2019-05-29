@@ -7,3 +7,4 @@ before_install:
 - npm install --global yarn@1.15.2
 
 script: which yarn
+script: echo 'trigger via pr'
