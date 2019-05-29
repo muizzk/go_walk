@@ -1,27 +1,36 @@
-env:
-  - DOCKER_COMPOSE_VERSION=1.10.0
+dist: xenial
+language: node_js
+node_js:
+- "11.3.0"
 
-matrix:
-  include:
-    - name: brew coffee
-      dist: xenial
-      script: echo 'brewing'
-   - name: serve breakfast
-     dist: trusty
-     script: echo 'serving' 
+before_install: 
+- npm install --global yarn@1.15.2
+
+script: which yarn
+# env:
+#   - DOCKER_COMPOSE_VERSION=1.10.0
+
+# matrix:
+#   include:
+#     - name: brew coffee
+#       dist: xenial
+#       script: echo 'brewing'
+#    - name: serve breakfast
+#      dist: trusty
+#      script: echo 'serving' 
 
 
-before_install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  # - export COMPOSE_PROJECT_NAME=host
+# before_install:
+#   - sudo rm /usr/local/bin/docker-compose
+#   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+#   - chmod +x docker-compose
+#   - sudo mv docker-compose /usr/local/bin
+#   # - export COMPOSE_PROJECT_NAME=host
 
-install:
-  - docker-compose build
-  - docker-compose up -d
+# install:
+#   - docker-compose build
+#   - docker-compose up -d
 
-after_failure:
-  - echo 'Output is fine here'
-  - echo $TRAVIS_TEST_RESULT
+# after_failure:
+#   - echo 'Output is fine here'
+#   - echo $TRAVIS_TEST_RESULT
