@@ -1,3 +1,5 @@
 os: osx
 arch: arm64
-script: sudo snap install core
+script: 
+  - brew install snapcraft
+  - sudo snap install core
