@@ -1,5 +1,11 @@
-os: osx
-arch: arm64
-script: 
-  - brew install snapcraft
-  - sudo snap install core
+os: bionic
+language: python
+jobs:
+  allow_failures:
+  include:
+    - stage: Can Fail
+      script: ./please_fail
+    - stage: Don't Fail
+      script: echo "Hi!"
+    - stage: Succeed
+      script: echo "ok!"
