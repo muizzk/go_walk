@@ -1,7 +1,6 @@
 dist: bionic
 language: python
 jobs:
-  allow_failures:
   include:
     - stage: Can Fail
       script: ./please_fail
