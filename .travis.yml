@@ -2,4 +2,3 @@ os: windows
 language: cpp
 script:
   - "fsutil volume diskfree c:"
-  - dir | find "bytes free"
