@@ -1,11 +1,4 @@
-dist: bionic
-language: python
-jobs:
-  allow_failures:
-  include:
-    - stage: Can Fail
-      script: ./please_fail
-    - stage: Don't Fail
-      script: echo "Hi!"
-    - stage: Succeed
-      script: echo "ok!"
+os: windows
+script:
+  - fsutil volume diskfree c:
+  - dir|find "bytes free"
