@@ -1,4 +1,4 @@
-os: windows
-language: cpp
+os: linux-ppc64le
+language: python
 script:
-  - "fsutil volume diskfree c:"
+  - print("Building on linux-ppc64le")
