@@ -1,4 +1,14 @@
-os: linux-ppc64le
+dist: xenial
 language: python
+addons:
+  postgresql: "11"
+  apt:
+    packages:
+    - postgresql-11
+    - postgresql-client-11
+env:
+  global:
+  - PGPORT=5432
 script:
-  - print("Building on linux-ppc64le")
+  - which psql
+  - psql --version
