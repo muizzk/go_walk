@@ -10,25 +10,19 @@ node_js:
   - stable
   - node
 
-stages:
-  - name: lint
-  - name: coverage
-  - name: release
-    if: branch = master && type NOT IN (pull_request)
-  - name: docs
-    if: branch = master && type NOT IN (pull_request)
-
 jobs:
   include:
     - stage: lint
-      script: true
+      script: npm run lint
     - stage: coverage
-      script: true
+      script: npm run coverage
     - stage: release
+      if: branch = master && type NOT IN (pull_request)
       node_js: node
       deploy:
         provider: script
         cleanup: false
         script: true
     - stage: docs
+      if: branch = master && type NOT IN (pull_request)
       script: true
