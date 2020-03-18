@@ -14,9 +14,6 @@ jobs:
   include:
     - stage: lint
       script: true
-    - stage: test
-      node: stable
-      script: npm test
     - stage: coverage
       script: true
     - stage: release
