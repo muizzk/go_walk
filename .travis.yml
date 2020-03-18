@@ -1,14 +1,28 @@
+language: node_js
+os: linux
 dist: xenial
-language: python
-addons:
-  postgresql: "11"
-  apt:
-    packages:
-    - postgresql-11
-    - postgresql-client-11
-env:
-  global:
-  - PGPORT=5432
-script:
-  - which psql
-  - psql --version
+
+notifications:
+  email: false
+node_js:
+  - "10.19.0"
+  - "lts/*"
+  - stable
+  - node
+
+jobs:
+  include:
+    - stage: lint
+      script: true
+    - stage: coverage
+      script: true
+    - stage: release
+      if: branch = master && type NOT IN (pull_request)
+      node_js: node
+      deploy:
+        provider: script
+        cleanup: false
+        script: true
+    - stage: docs
+      if: branch = master && type NOT IN (pull_request)
+      script: true
