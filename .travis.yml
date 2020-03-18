@@ -10,8 +10,6 @@ node_js:
   - stable
   - node
 
-install: npm install
-
 stages:
   - name: lint
   - name: coverage
