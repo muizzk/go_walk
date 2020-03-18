@@ -13,9 +13,12 @@ node_js:
 jobs:
   include:
     - stage: lint
-      script: npm run lint
+      script: true
+    - stage: test
+      node: stable
+      script: npm test
     - stage: coverage
-      script: npm run coverage
+      script: true
     - stage: release
       if: branch = master && type NOT IN (pull_request)
       node_js: node
