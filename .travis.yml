@@ -14,12 +14,12 @@ jobs:
   include:
     - name: First Job
       install: true
-      script: curl localhost:8080?x=1
+      script: curl http://0.0.0.0:8080/?x=1
 
     - name: Second Job  
       install: true 
-      script: curl localhost:8080?x=2
+      script: curl http://0.0.0.0:8080/?x=2
 
     - name: Third Job  
       install: true 
-      script: curl localhost:8080?x=3
+      script: curl http://0.0.0.0:8080/?x=3
