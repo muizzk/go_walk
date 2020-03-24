@@ -1,14 +1,27 @@
+os: linux
 dist: xenial
 language: python
-addons:
-  postgresql: "11"
-  apt:
-    packages:
-    - postgresql-11
-    - postgresql-client-11
-env:
-  global:
-  - PGPORT=5432
-script:
-  - which psql
-  - psql --version
+python:
+  - 3.7
+
+services:
+  - docker
+
+before_install:
+  - docker pull phpmyadmin/phpmyadmin
+  - docker run --name myadmin -d -e PMA_ARBITRARY=1 -p 8080:80 phpmyadmin/phpmyadmin
+  - docker ps -a
+
+jobs:
+  include:
+    - name: First Job
+      install: true
+      script: curl http://0.0.0.0:8080/?x=1
+
+    - name: Second Job  
+      install: true 
+      script: curl http://0.0.0.0:8080/?x=2
+
+    - name: Third Job  
+      install: true 
+      script: curl http://0.0.0.0:8080/?x=3
