@@ -8,7 +8,9 @@ services:
   - docker
 
 before_install:
-  - python3 -m http.server 8080 &
+  - docker pull phpmyadmin/phpmyadmin
+  - docker run --name myadmin -d -e PMA_ARBITRARY=1 -p 8080:80 phpmyadmin/phpmyadmin
+  - docker ps -a
 
 jobs:
   include:
