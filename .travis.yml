@@ -2,4 +2,4 @@
 language: ruby
 rvm: 
   - 2.5
-script: "ruby -version"
+script: "ruby -v"
