@@ -1,14 +1,5 @@
-dist: xenial
-language: python
-addons:
-  postgresql: "11"
-  apt:
-    packages:
-    - postgresql-11
-    - postgresql-client-11
-env:
-  global:
-  - PGPORT=5432
-script:
-  - which psql
-  - psql --version
+--- 
+language: ruby
+rvm: 
+  - 2.5
+script: "ruby -version"
