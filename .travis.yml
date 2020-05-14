@@ -1,6 +1,2 @@
-language: java
-jdk: 
-  - oraclejdk8
-  - openjdk8
-env: platform="macOS 10.15" browser="Chrome"
-script: java -version
+language: shell
+script: curl -vv https://api.scaleway.com/instance/v1/zones/fr-par-1
