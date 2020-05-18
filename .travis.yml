@@ -1,2 +1,28 @@
-language: shell
-script: curl -vv https://api.scaleway.com/instance/v1/zones/fr-par-1
+language: python
+cache: pip
+python: "3.8"
+services:
+  - postgresql
+  - redis-server
+addons:
+  postgresql: "11"
+  apt:
+    packages:
+      - postgresql-11
+      - postgresql-11-postgis-2.5
+      - postgresql-11-postgis-2.5-scripts  
+dist: bionic
+sudo: required
+install:
+  - pip install --upgrade pip
+  - pip install cython
+  - pip install fasttext==0.9.1
+  - pip install fabric3
+before_script:
+  - psql -c "CREATE USER cooklist WITH PASSWORD 'cooklist';" -U postgres
+  - psql -c "ALTER USER cooklist CREATEDB;" -U postgres
+  - psql -c "ALTER USER cooklist WITH SUPERUSER;" -U postgres
+  - psql -c "CREATE DATABASE cooklist WITH OWNER cooklist;" -U postgres
+  - psql -U postgres -c "create extension postgis"
+  - psql -U postgres -c "create extension intarray"  
+script: true
