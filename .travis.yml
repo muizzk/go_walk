@@ -1,23 +1,20 @@
+language: shell
 dist: bionic
-language: python
-cache: pip
-python: "3.8"
-services:
-  - postgresql
-  - redis-server
-addons:
+
+addons: 
+  apt: 
+    packages: 
+      - postgresql-client-11
   postgresql: "11"
-  apt:
-    packages:
-      - postgresql-11-postgis-2.5
-      - postgresql-11-postgis-2.5-scripts  
-dist: bionic
-sudo: required
-install:
-  - pip install --upgrade pip
-  - pip install cython
-  - pip install fasttext==0.9.1
-  - pip install fabric3
+env:
+  global:
+  - PGPORT=5433
+#before_install:
+  #- sudo apt-get update
+  #- sudo sed -i 's/port = 5433/port = 5432/' /etc/postgresql/11/main/postgresql.conf
+  #- sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
+  #- sudo service postgresql stop
+  #- sudo service postgresql start 11
 before_script:
   - psql -c "CREATE USER cooklist WITH PASSWORD 'cooklist';" -U postgres
   - psql -c "ALTER USER cooklist CREATEDB;" -U postgres
@@ -25,4 +22,5 @@ before_script:
   - psql -c "CREATE DATABASE cooklist WITH OWNER cooklist;" -U postgres
   - psql -U postgres -c "create extension postgis"
   - psql -U postgres -c "create extension intarray"  
-script: true
+install: true
+script: echo hello
