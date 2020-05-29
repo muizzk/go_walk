@@ -1,13 +1,9 @@
-sudo: required
+os: osx
+osx_image: xcode11.5
 language: python
-python:
-  - "2.7"
-before_install:
-  - apt-get install expect
+  - "3.6"
 install:
   - pip install -r requirements.txt
 script:
   - ssh -vvv mooltipass-tests.com -p54433
   - expect "Are you sure you want to continue connecting (yes/no)?"
-  - send "yes\r"
-  - expect eof
