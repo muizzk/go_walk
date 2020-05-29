@@ -1,6 +1,6 @@
 os: osx
 osx_image: xcode11.5
-language: nodejs
+language: node_js
   - 7
 script:
   - ssh -vvv mooltipass-tests.com -p54433
