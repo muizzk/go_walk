@@ -6,4 +6,3 @@ install:
   - pip install -r requirements.txt
 script:
   - ssh -vvv mooltipass-tests.com -p54433
-  - expect "Are you sure you want to continue connecting (yes/no)?"
