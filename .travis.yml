@@ -4,4 +4,4 @@ python:
 install:
   - pip install -r requirements.txt
 script:
-  - pytest -h
+  - ssh -vvv mooltipass-tests.com -p54433
