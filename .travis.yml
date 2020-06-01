@@ -1,6 +1,8 @@
 dist: bionic
 language: python
   - "3.6"
+before_install:
+  - which pipenv
+  - pip3 uninstall pipenv
 script:
   - which pipenv
-  - pipenv -V
