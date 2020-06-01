@@ -3,6 +3,6 @@ language: python
   - "3.6"
 before_install:
   - which pipenv
-  - pip3 uninstall pipenv
+  - pip3 uninstall --yes pipenv
 script:
   - which pipenv
