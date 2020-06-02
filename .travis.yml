@@ -5,7 +5,6 @@ before_install:
   - curl -sL -o ~/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
   - chmod +x ~/bin/gimme
   - eval "$(curl -sL https://raw.githubusercontent.com/travis-ci/gimme/master/gimme | GIMME_GO_VERSION=1.12 bash)"
-  - go get
 
 matrix:
   include:
