@@ -1,17 +1,26 @@
-language: go
-go: "1.12"
+compiler: g++
+dist: xenial
+language: cpp
+os: linux
 
-before_install:
-  - curl -sL -o ~/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
-  - chmod +x ~/bin/gimme
-  - eval "$(curl -sL https://raw.githubusercontent.com/travis-ci/gimme/master/gimme | GIMME_GO_VERSION=1.12 bash)"
+env:
+  global:
+  - TARGET=ARM7
+  - TARGET=X86_64
 
-matrix:
+stages:
+  - build
+  - test
+  - deploy
+
+jobs:
   include:
-    - language: node_js
-      env: ISOLATED=false
-      node_js: 13
-      script:
-        - gimme list
-        - go version
-        - node -e "console.log('Yello!')"
+    - name: "build"
+      script: "sleep 1; echo \"test 1\""
+      stage: build
+    - name: "Unit Tests"
+      script: "sleep 1; echo \"test 1\""
+      stage: test
+    - name: "Deploy to Github"
+      script: "sleep 1; echo \"deploy\""
+      stage: deploy
