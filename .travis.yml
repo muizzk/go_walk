@@ -10,7 +10,7 @@ jobs:
       deploy:
         - provider: script
           script: >-
-           echo -e "EC2_PUBLIC_DNS='Some DNS value'" > ec2_instance 
+           echo -e "EC2_PUBLIC_DNS='Some DNS value'" > $TRAVIS_BUILD_DIR/ec2_instance 
           on:
             all_branches: true
           skip_cleanup: true
@@ -18,11 +18,11 @@ jobs:
         create: 
           name: ws1
           paths: 
-            - ec2_instance
+            - $TRAVIS_BUILD_DIR/ec2_instance
     - stage: after_deploy
       workspaces:
         use: ws1
       after_deploy:
-        - export EC2_PUBLIC_DNS="$(grep EC2_PUBLIC_DNS ec2_instance | cut -d '=' -f 2)"
+        - export EC2_PUBLIC_DNS="$(grep EC2_PUBLIC_DNS $TRAVIS_BUILD_DIR/ec2_instance | cut -d '=' -f 2)"
         - echo "connecting to $EC2_PUBLIC_DNS.."
 
