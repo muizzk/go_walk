@@ -19,7 +19,7 @@ jobs:
         create: 
           name: ws1
           paths: 
-            - $TRAVIS_BUILD_DIR/ec2_instance.txt
+            - $TRAVIS_BUILD_DIR
     - stage: after_deploy
       workspaces:
         use: ws1
