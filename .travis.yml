@@ -3,6 +3,8 @@ dist: xenial
 sudo: false
 language: bash
 
+script: touch $TRAVIS_BUILD_DIR/ec2_instance.txt
+
 jobs:
   include:
     - stage: deploy
@@ -10,7 +12,6 @@ jobs:
       deploy:
         - provider: script
           script: >-
-           touch $TRAVIS_BUILD_DIR/ec2_instance.txt
            && echo -e "EC2_PUBLIC_DNS='Some DNS value'" > $TRAVIS_BUILD_DIR/ec2_instance.txt
           on:
             all_branches: true
