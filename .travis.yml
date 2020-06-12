@@ -2,7 +2,7 @@ os: linux
 language: bash
 
 before_install:
-  - git clone -q https://muizzk@github.com/muizzk/flow_test.git
+  - git clone https://muizzk:$HTTPS_CLONE_TOKEN@github.com/muizzk/flow_test.git
   
 install:
   - cd go_walk
