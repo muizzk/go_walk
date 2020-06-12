@@ -4,9 +4,7 @@ language: bash
 before_install:
   - pip install --user git+https://$HTTPS_CLONE_TOKEN@github.com/muizzk/pythonpack.git
   
-install:
-  - cd flow_test
-  - ls
+install: true
   
 script:
   - echo "Done!"
