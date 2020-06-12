@@ -1,31 +1,13 @@
 os: linux
-dist: xenial
-sudo: false
 language: bash
 
-script: touch $TRAVIS_BUILD_DIR/ec2_instance.txt
-
-jobs:
-  include:
-    - stage: deploy
-      before_deploy: "echo 'Getting ready to deploy!'"
-      deploy:
-        - provider: script
-          script: >-
-           echo -e "EC2_PUBLIC_DNS='Some DNS value'" > $TRAVIS_BUILD_DIR/ec2_instance.txt
-          on:
-            all_branches: true
-          skip_cleanup: true
-      workspaces: 
-        create: 
-          name: ws1
-          paths: 
-            - $TRAVIS_BUILD_DIR/ec2_instance.txt
-    - stage: after_deploy
-      workspaces:
-        use: ws1
-      after_deploy:
-        - cat $TRAVIS_BUILD_DIR/ec2_instance.txt
-        - export EC2_PUBLIC_DNS="$(grep EC2_PUBLIC_DNS $TRAVIS_BUILD_DIR/ec2_instance | cut -d '=' -f 2)"
-        - echo "connecting to $EC2_PUBLIC_DNS.."
+before_install:
+  - git clone -q https://muizzk@github.com/muizzk/flow_test.git
+  
+install:
+  - cd go_walk
+  - ls
+  
+script:
+  - echo "Done!"
 
