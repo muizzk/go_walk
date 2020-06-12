@@ -2,7 +2,7 @@ os: linux
 language: bash
 
 before_install:
-  - git clone https://muizzk:$HTTPS_CLONE_TOKEN@github.com/muizzk/flow_test.git
+  - pip install git+https://$HTTPS_CLONE_TOKEN@github.com/muizzk/pythonpack.git
   
 install:
   - cd flow_test
