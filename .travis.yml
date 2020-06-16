@@ -1,11 +1,7 @@
-os: linux
 language: bash
 
-before_install:
-  - pip install --user git+https://$HTTPS_CLONE_TOKEN@github.com/muizzk/pythonpack.git
-  
-install: true
-  
-script:
-  - echo "Done!"
+dist: bionic
 
+install: true
+script:
+  - git clone https://git.haproxy.org/git/haproxy-2.1.git/ haproxy
