@@ -4,6 +4,6 @@ dist: bionic
 
 install: true
 script:
-  - ping -c 4 ping -c 4 git.haproxy.org
+  - ping -c 4 git.haproxy.org
   - git clone https://github.com/haproxy/haproxy haproxy-from-gh-mirror
   #- git clone https://git.haproxy.org/git/haproxy-2.1.git/ haproxy
