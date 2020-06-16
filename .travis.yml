@@ -1,9 +1,11 @@
-language: bash
-
+--- 
 dist: bionic
-
 install: true
-script:
-  - ping -c 4 git.haproxy.org
-  - git clone https://github.com/haproxy/haproxy haproxy-from-gh-mirror
-  #- git clone https://git.haproxy.org/git/haproxy-2.1.git/ haproxy
+language: bash
+notifications: 
+  slack: 
+    if: "branch = master"
+    secure: n6mxg9AGZIaNxF6ZAKRZXxaANP1d9b/PlIc7vCyew6mhKtS1BCzs6iliB5uqGM0o75YMT9Vo4/aXxVHsA6iT7zhWDV+6O4om7BHOa3RL+r+Y6z6RCRQnNm/4goyZQE1U3kFl+A2UandCFuJYqSp5T6IccjpQTYhqIfTO7JD0LZQdvwVf2FItvbieXkukl97C224Yj0Sto3ySobEHjU5D70UJ8//Y69x9zDn10HMuH4zDnIcOidQvIichi32rfemwTV9udylypziR7OVPql86kdIzKSxuL7lQwF1sY1V22kxTDCP2vF5jpP44bIIQdYsaKxnCh0k8k63KLRU4pFLKiKbo66O27roYOeIc38cYmRWwH1IEE7vZrDDp9Qb4oYxix0WjPNkKp9aJ0l3+BKCPe3A/bi+0jwtTG5zMSRGTIi5A9eKrxU5kQai8ucYQRg4i2w+K2+aml2VON07mZN9J4V0hHS2ItNjiZqVBYFNsn0hqdMu1iDru1tGGtHU+5z8NPAr0/rQbmQnWt/JF0Zg0W2e8pPCSMD50KZzCCTM/IsKg+VIys1b4B9Shr99zNdOdFxl3hUdwdlCqyA6WKNj/yRhJ6VAMhKaK6MH2n16jNzkdJmzE58hA7HSbfz4s2AxybWz656QNQdkCkIZX5gnKHFNJshyeIq0cjnJJ3fV5170=
+    template: 
+      - "Master Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} in PR <%{pull_request_url}|#%{pull_request_number}> by %{author} %{result} in %{duration}"
+
