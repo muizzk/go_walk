@@ -2,6 +2,9 @@
 dist: bionic
 install: true
 language: bash
+script:
+  - chmod +x sayhi.sh
+  - ./sayhi.sh
 notifications: 
   slack: 
     if: "branch = master"
