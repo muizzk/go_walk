@@ -1,3 +1,8 @@
 #!/bin/bash
 
-echo "Hi!"
+sayhi() {
+  echo "Hi!"
+  exit
+}
+
+sayhi
