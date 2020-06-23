@@ -1,11 +1,14 @@
-language: python
-python: '3.6'
-cache: pip
-before_install:
-  - python --version
-  - pip install -U pip
-  - pip install -U pytest
-install:
-  - pip install black
+language: java
+os: linux
+dist: xenial
+jdk:
+  - openjdk14
 script:
-  - black . --check
+  - echo "assemble"
+jobs:
+  include:
+    - stage: "Tests"
+      name: "API Tests"
+      script: echo "*tests.api*"
+    - name: "GUI Tests"
+      script: echo "*tests.gui*"
