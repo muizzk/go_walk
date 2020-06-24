@@ -3,4 +3,4 @@ dist: bionic
 install: true
 language: bash
 script:
-  - mkdir -p /home/just_a_folder
+  - sudo mkdir -p /home/just_a_folder
