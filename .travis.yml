@@ -1,14 +1,6 @@
-language: java
-os: linux
-dist: xenial
-jdk:
-  - openjdk14
+sudo: true
+dist: bionic
+install: true
+language: bash
 script:
-  - echo "assemble"
-jobs:
-  include:
-    - stage: "Tests"
-      name: "API Tests"
-      script: echo "*tests.api*"
-    - name: "GUI Tests"
-      script: echo "*tests.gui*"
+  - mkdir -p /home/just_a_folder
