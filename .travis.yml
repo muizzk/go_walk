@@ -1,5 +1,6 @@
-dist: bionic
-install: true
-language: bash
+os: windows
+language: ruby
+rvm:
+  - 2.6
 script:
-  - sudo mkdir -p /home/just_a_folder
+  - puts "test ruby"
