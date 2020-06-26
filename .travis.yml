@@ -3,7 +3,7 @@ jobs:
   include:
     - stage: "Install"
       name: "Install Once"
-      script: cat "assemble" > one_or_more_generated_files_needed_by_other_jobs.txt
+      script: echo "assemble" > one_or_more_generated_files_needed_by_other_jobs.txt
       workspaces:
         create:
           name: assemble_workspace
@@ -14,12 +14,12 @@ jobs:
       workspaces:
         use: assemble_workspace
       script:
-        - cat "API Tests" >> one_or_more_generated_files_needed_by_other_jobs.txt
+        - echo "API Tests" >> one_or_more_generated_files_needed_by_other_jobs.txt
         - cat one_or_more_generated_files_needed_by_other_jobs.txt
     - stage: "GUI Tests"
       name: "GUI Tests"
       workspaces:
         use: assemble_workspace
       script: 
-        - cat "GUI Tests" >> one_or_more_generated_files_needed_by_other_jobs.txt
+        - echo "GUI Tests" >> one_or_more_generated_files_needed_by_other_jobs.txt
         - cat one_or_more_generated_files_needed_by_other_jobs.txt
