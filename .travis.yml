@@ -3,4 +3,4 @@ scala:
   - 2.13.1
 jdk:
   - openjdk13
-script: which scala
+script: scala -h
