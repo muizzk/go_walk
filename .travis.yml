@@ -1,7 +1,23 @@
-dist: trusty
-language: scala
-scala:
-  - 2.13.1
-jdk:
-  - oraclejdk8
-script: true
+language: ruby
+dist: "xenial"
+rvm:
+  - 2.5.7
+before_install:
+  sudo apt-get update
+
+jobs:
+  include:
+    - stage: 'setup'
+      name: 'setup'
+      script:
+        - gem install bundler:2.0.1
+        - bundle install
+    - stage: 'Lint'
+      name: 'Lint: Ruby: rubocop'
+      script:
+        - bundle exec rubocop 2>&1 1> rubocop.txt
+        - cat rubocop.txt
+
+stages:
+  - name: 'setup'
+  - name: 'Lint'
