@@ -3,4 +3,5 @@
 ruby '2.5.7'
 source 'https://rubygems.org'
 gem 'rubocop', require: false
+gem 'rubocop-discourse'
 gem 'sqlite3'
