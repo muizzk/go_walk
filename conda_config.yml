@@ -1,0 +1,14 @@
+name: conda_tests
+
+dependencies:
+- numpy
+- pandas
+- jupyterlab
+- matplotlib
+- seaborn
+- scipy
+- statsmodels
+- pip
+- pip:
+    - linearmodels
+    - scikit-learn

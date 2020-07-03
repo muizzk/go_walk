@@ -1,23 +1,16 @@
-language: ruby
-dist: "xenial"
-rvm:
-  - 2.5.7
-before_install:
-  sudo apt-get update
+language: python
 
-jobs:
-  include:
-    - stage: 'setup'
-      name: 'setup'
-      script:
-        - gem install bundler:2.0.1
-        - bundle install
-    - stage: 'Lint'
-      name: 'Lint: Ruby: rubocop'
-      script:
-        - bundle exec rubocop 2>&1 1> rubocop.txt
-        - cat rubocop.txt
+python:
+  - 3.6
 
-stages:
-  - name: 'setup'
-  - name: 'Lint'
+bundler_args: --retry 3
+
+install:
+  - sudo apt-get update
+  - ./travis_miniconda.sh
+  - PATH="$HOME/miniconda/bin:$PATH"
+  - conda env create -f conda_config.yml
+  - source activate conda_tests
+
+script:
+   - conda --help
