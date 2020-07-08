@@ -1,3 +1,4 @@
+dist: Xenial
 language: python
 
 python:
