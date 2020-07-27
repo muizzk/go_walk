@@ -23,7 +23,4 @@ android:
     - sys-img-x86-android-26
     - sys-img-armeabi-v7a-android-17
     
-script:
-  - ls /android/sdk/build-tools/
-  - cat /android/sdk/platform-tools/source.properties | grep Pkg.Revision
-  - cat /android/sdk/tools/source.properties | grep Pkg.Revision
+script: true
