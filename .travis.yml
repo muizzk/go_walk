@@ -1,6 +1,5 @@
 language: php
 dist: xenial
-arch: arm64
 php:
   - 7.2
 
