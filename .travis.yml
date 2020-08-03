@@ -1,23 +1,8 @@
 language: php
-dist: precise
-
+dist: xenial
+arch: arm64
 php:
-  - 5.3
   - 7.2
 
-addons:
-    hosts:
-        - mysql.local
-        - dce-memcached
-        - darwin-history-mysql
-  
-install:
-    - nvm install 7.10.1
-    - echo '' | pecl install -f amqp-1.8.0
-    - sudo apt-get install libcrack2
-    - sudo mkdir /var/log/aw && sudo touch /var/log/aw/darwin.log && sudo chmod 777 /var/log/aw/darwin.log
-    - sudo mkdir /srv/log && sudo mkdir /srv/log/darwin-docker && sudo touch /srv/log/darwin-docker/signups-errors.log && sudo chmod 777 /srv/log/darwin-docker/signups-errors.log
+script: git --version
 
-script: true
-
-sudo: false
