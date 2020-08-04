@@ -4,5 +4,5 @@ group: deprecated-2017Q4
 php:
   - 7.2
 
-script: echo 'Trigger staging build'
+script: echo 'Trigger staging build again'
 
