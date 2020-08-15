@@ -1,8 +1,10 @@
-language: php
 dist: xenial
-group: deprecated-2017Q4
-php:
-  - 7.2
-
-script: echo 'Test on prod'
-
+language: ruby
+cache:
+  directories:
+    - vendor/cache
+before_install:
+  - bundle cache 
+install:
+  - bundle install --local
+script: true
