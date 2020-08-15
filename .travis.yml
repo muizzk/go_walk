@@ -3,7 +3,8 @@ language: ruby
 cache:
   directories:
     - vendor/cache
-install:
-  - bundle install --local
+install: true
 script:
-  - bundle cache
+  - if [ ! -d "vendor/cache" ]; bundle install # first installation if we have no cache else
+  - bundle install --local # install from cache
+  - bundle cache # and then cache whatever we just installed for subsequent reruns
