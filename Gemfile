@@ -5,3 +5,4 @@ source 'https://rubygems.org'
 gem 'rubocop', require: false
 gem 'rubocop-discourse'
 gem 'sqlite3'
+gem 'security', '~> 0.1.3'
