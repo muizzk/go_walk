@@ -5,6 +5,6 @@ cache:
     - vendor/cache
 install: true
 script:
-  - if [ ! -d "vendor/cache" ]; then bundle install; fi # first installation if we have no cache else
-  - bundle install --local || true # install from cache if exists, otherwise prevent non-zero exit
+  # - if [ ! -d "vendor/cache" ]; then bundle install; fi # first installation if we have no cache else
+  - bundle install --local || bundle install # install from cache if exists, otherwise install afresh
   - bundle cache # and then cache whatever we just installed for subsequent reruns
