@@ -3,8 +3,7 @@ language: ruby
 cache:
   directories:
     - vendor/cache
-before_install:
-  - bundle cache 
 install:
   - bundle install --local
-script: true
+script:
+  - bundle cache
