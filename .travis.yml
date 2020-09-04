@@ -1,6 +1,6 @@
 --- 
 before_script: 
-  - "rustup component add rustfmt"
+  - "rustup component add rustfmt --toolchain nightly"
   - "rustup component add clippy"
   - "cargo install cargo-audit"
 language: rust
