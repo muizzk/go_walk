@@ -1,10 +1,15 @@
-dist: xenial
-language: ruby
-cache:
-  directories:
-    - vendor/cache
-install: true
-script:
-  # - if [ ! -d "vendor/cache" ]; then bundle install; fi # first installation if we have no cache else
-  - bundle install --local || bundle install # install from cache if exists, otherwise install afresh
-  - bundle cache # and then cache whatever we just installed for subsequent reruns
+language: rust
+rust:
+- nightly
+
+before_script:
+- rustup component add rustfmt
+- rustup component add clippy
+- cargo install cargo-audit
+
+script: |
+cargo fmt --all -- --check &&
+cargo clippy -- -D warnings &&
+cargo build &&
+cargo test &&
+cargo audit
