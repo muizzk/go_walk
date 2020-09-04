@@ -8,6 +8,7 @@ before_script:
 - cargo install cargo-audit
 
 script: |
+println!("Rusty rusty") && 
 cargo fmt --all -- --check &&
 cargo clippy -- -D warnings &&
 cargo build &&
