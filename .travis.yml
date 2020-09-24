@@ -1,15 +1,13 @@
 --- 
-before_script: 
-  - "rustup component add rustfmt --toolchain nightly --allow-downgrade"
-  - "rustup component add clippy"
-  - "cargo install cargo-audit"
-language: rust
-rust: 
-  - nightly
-script: |
-    println!("Rusty rusty") && 
-    cargo fmt --all -- --check &&
-    cargo clippy -- -D warnings &&
-    cargo build &&
-    cargo test &&
-    cargo audit
+dist: focal
+language: python
+python: 
+  - 3.7
+before_install:
+  - python -m pip install --upgrade pip
+  - pip check
+install:
+  - pip install --use-feature=2020-resolver -r requirements.txt
+script:
+  - pip --version
+  - pip freeze --local
