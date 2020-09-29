@@ -1,7 +1,7 @@
 --- 
 os: linux
 arch: arm64-graviton2
-virt: lxd
+virt: vm
 language: python
 python: 
   - 3.7
