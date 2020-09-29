@@ -1,5 +1,6 @@
 --- 
-dist: focal
+os: linux
+arch: arm64-graviton2
 language: python
 python: 
   - 3.7
