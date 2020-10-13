@@ -1,16 +1,8 @@
 --- 
 os: linux
-arch: arm64-graviton2
-virt: lxd
-group: edge
-language: python
-python: 
-  - 3.7
-before_install:
-  - python -m pip install --upgrade pip
-  - pip check
-install:
-  - pip install --use-feature=2020-resolver -r requirements.txt
+language: node_js
+node_js: 
+  - stable
 script:
   - pip --version
   - pip freeze --local
