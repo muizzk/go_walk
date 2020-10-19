@@ -11,7 +11,6 @@ matrix:
       sudo: required
       language: bash
       env: OSARCH=linux
-before_install:
-  - sudo apt-get install openjdk-9-jdk
 script:
+  - jdk_switcher use openjdk10
   - which openjdk
