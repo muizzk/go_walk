@@ -1,4 +1,4 @@
-language: node_js
+language: java
 matrix:
   include:
     - os: linux-ppc64le
@@ -11,6 +11,10 @@ matrix:
       sudo: required
       language: bash
       env: OSARCH=linux
+before_script:
+  - nvm install 12.14.1
+jdk:
+  - oraclejdk9
 script:
-  - jdk_switcher use openjdk10
   - which openjdk
+  - node --version
