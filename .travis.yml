@@ -1,9 +1,18 @@
---- 
-os: linux
 language: node_js
-node_js: 
-  - stable
+sudo: required
+matrix:
+  include:
+    - os: linux-ppc64le
+      env: OSARCH=linux-ppc64le
+      sudo: required
+    - os: linux
+      env: OSARCH=linux-amd64
+      sudo: required
+    - os: linux-s390
+      sudo: required
+      language: bash
+      env: OSARCH=linux
+before_install:
+  - sudo apt-get install openjdk-9-jdk
 script:
-  - pip --version
-  - pip freeze --local
-  - echo $TERM
+  - which openjdk
