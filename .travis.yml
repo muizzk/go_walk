@@ -16,5 +16,5 @@ before_script:
 jdk:
   - oraclejdk9
 script:
-  - which openjdk
+  - java -version
   - node --version
