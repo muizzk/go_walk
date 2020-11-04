@@ -1,25 +1,8 @@
-dist: xenial
+dist: bionic
 language: java
-matrix:
-  include:
-    - os: linux-ppc64le
-      env: OSARCH=linux-ppc64le
-      sudo: required
-    - os: linux
-      env: OSARCH=linux-amd64
-      sudo: required
-    - os: linux-s390
-      sudo: required
-      language: bash
-      env: OSARCH=linux
 services:
   - couchdb
 before_script:
-  - nvm install 12.14.1
   - curl -X PUT localhost:5984/support_debug
-jdk:
-  - oraclejdk9
 script:
-  - java -version
-  - node --version
   - curl localhost:5984/support_debug
