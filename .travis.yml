@@ -8,7 +8,5 @@ addons:
     - couchdb
 before_script:
   - curl -X PUT localhost:5984/support_debug
-  - curl -X PUT http://admin:mypassword@localhost:5984/gh_comment
 script:
-  - curl http://admin:password@localhost:5984/_all_dbs
-  - curl http://admin:mypassword@localhost:5984/_all_dbs
+  - curl http://localhost:5984/_config
