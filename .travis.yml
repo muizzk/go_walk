@@ -1,7 +1,11 @@
-dist: xenial
+dist: bionic
 language: java
-services:
-  - couchdb
+addons:
+  apt:
+    sources:
+      - https://apache.bintray.com/couchdb-deb
+    packages:
+    - couchdb
 before_script:
   - curl -X PUT localhost:5984/support_debug
 script:
