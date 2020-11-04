@@ -9,4 +9,4 @@ addons:
 before_script:
   - curl -X PUT localhost:5984/support_debug
 script:
-  - curl localhost:5984/support_debug
+  - curl http://admin:password@localhost:5984/support_debug
