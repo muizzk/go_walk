@@ -3,7 +3,7 @@ language: java
 addons:
   apt:
     sources:
-      - https://apache.bintray.com/couchdb-deb
+      - sourceline: "deb https://apache.bintray.com/couchdb-deb bionic main"
     packages:
     - couchdb
 before_script:
