@@ -8,6 +8,7 @@ addons:
     packages:
     - couchdb
 before_script:
+  - echo "Test"
   - curl -X PUT localhost:5984/support_debug
 script:
   - curl http://localhost:5984/_config
