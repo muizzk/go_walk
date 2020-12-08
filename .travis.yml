@@ -1,14 +1,10 @@
-arch: ppc64le
 dist: bionic
-language: java
+language: python
+python: 
+  - "3.7"
 addons:
   apt:
     sources:
-      - sourceline: "deb https://apache.bintray.com/couchdb-deb bionic main"
+      - sourceline: "deb http://ppa.launchpad.net/ondrej/mysql-5.6/ubuntu bionic main"
     packages:
-    - couchdb
-before_script:
-  - echo "Test"
-  - curl -X PUT localhost:5984/support_debug
-script:
-  - curl http://localhost:5984/_config
+      - mysql
