@@ -5,4 +5,4 @@ services:
 before_script:
   - curl -X PUT http://admin:travis@localhost:5984/support_debug
 script:
-  - curl localhost:5984/support_debug
+  - curl http://admin:travis@localhost:5984/support_debug
