@@ -14,7 +14,7 @@ jobs:
   allow_failures:
     - node_js: "node"
   include:
-    - stage: test
+    - stage: test-renamed
       script: 
         - echo "Explicit test stage"
     - stage: deploy
