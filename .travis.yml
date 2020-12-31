@@ -1,8 +1,29 @@
-dist: bionic
-language: java
-services:
-  - couchdb
-before_script:
-  - curl -X PUT http://admin:travis@localhost:5984/support_debug
-script:
-  - curl http://admin:travis@localhost:5984/support_debug
+language: node_js
+
+node_js:
+  - 10
+  - "node"
+
+cache:
+  yarn: true
+
+install: skip
+
+jobs:
+  fast_finish: true
+  allow_failures:
+    - node_js: "node"
+  include:
+    - stage: test
+      script: 
+        - echo "Explicit test stage"
+    - stage: deploy
+      node_js:
+        - "10.20.1"
+      script:
+        - echo "Deploy stage"
+    - stage: UItest
+      node_js:
+        - "10.20.1"
+      script:
+        - echo "UItests stage"
