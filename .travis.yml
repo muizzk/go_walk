@@ -1,6 +1,5 @@
 os: linux
 dist: bionic
-group: edge
 arch: arm64-graviton2
 virt: lxd
 compiler: gcc
