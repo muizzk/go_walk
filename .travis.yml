@@ -31,12 +31,10 @@ node_js:
   - 12
 
 before_install: 
-  - sudo apt-get -y install python2 python2-pip
-  - sudo apt-get -y install python2-dev # in order to be able to pip3 install pycrypto
+  - sudo apt-get -y install python-minimal
   - pip2 install virtualenv
-  - which python2
   - sudo virtualenv -p `which python2` name_of_my_new_venv
-  - cd name_of_my_new_venv
+  - cd name_of_my_new_venv/
   - source bin/activate
   - which python # confirm python2 is the default for the new venv created
 install: true
