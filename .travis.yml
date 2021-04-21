@@ -37,6 +37,11 @@ before_install:
   - cd name_of_my_new_venv/
   - source bin/activate
   - which python # confirm python2 is the default for the new venv created
+  
+  # Configure UFW rules
+  - sudo ufw allow ssh/tcp
+  - sudo ufw logging on
+  - sudo ufw enable
 install: true
 script:
   - sudo ufw status
