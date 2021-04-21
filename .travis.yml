@@ -38,4 +38,5 @@ before_install:
   - source bin/activate
   - which python # confirm python2 is the default for the new venv created
 install: true
-script: true
+script:
+  - sudo ufw status
